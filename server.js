@@ -13,7 +13,7 @@ const products = require('./products')
 
 app.use(express.static("public"));
 
-const dotenv = require('dotenv').config()
+
 
 const initializePassport = require('./passport-config')
 initializePassport(

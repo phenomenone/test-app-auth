@@ -1,8 +1,8 @@
 <%- include('partials/header'); -%>
 
-<h1>Hi <%= name %></h1>
+<h1>Hi <%= name %>,</h1>
 <h3>User Role: <%= role %></h3>
-<h2>Products</h2>
+<h2>Products:</h2>
 
 <table>
   <thead>
@@ -17,10 +17,10 @@
     <% products.forEach(function(product){ %>
       <tr>
       <% if(role === "admin") {%>
-          <td contenteditable="true" id="cell" name="cell"><%= product.name %></td>
-          <td><%= product.sku %></td>
-          <td><%= product.brand %> </td>
-          <td><%= product.price %></td>
+          <td contenteditable="true"><%= product.name %></td>
+          <td contenteditable="true"><%= product.sku %></td>
+          <td contenteditable="true"><%= product.brand %> </td>
+          <td contenteditable="true"><%= product.price %></td>
         <%} else {%>
           <td><%= product.name %></td>
           <td><%= product.sku %></td>
@@ -34,9 +34,9 @@
 </table>
 
 
-
-<form action="/logout?_method=DELETE" method="POST">
-  <button type="submit">Log Out</button>
+<br>
+<form action="/logout?_method=DELETE" method="POST" >
+  <button type="submit" class="btn btn-warning">Log Out</button>
 </form>
 
 <%- include('partials/footer'); -%>
