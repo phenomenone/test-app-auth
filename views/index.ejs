@@ -1,4 +1,42 @@
+<%- include('partials/header'); -%>
+
 <h1>Hi <%= name %></h1>
+<h3>User Role: <%= role %></h3>
+<h2>Products</h2>
+
+<table>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Sku</th>
+          <th>Brand</th>
+          <th>Unit Price</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(function(product){ %>
+      <tr>
+      <% if(role === "admin") {%>
+          <td contenteditable="true" id="cell" name="cell"><%= product.name %></td>
+          <td><%= product.sku %></td>
+          <td><%= product.brand %> </td>
+          <td><%= product.price %></td>
+        <%} else {%>
+          <td><%= product.name %></td>
+          <td><%= product.sku %></td>
+          <td><%= product.brand %> </td>
+          <td><%= product.price %></td>
+<%}%>
+
+      </tr>
+      <% }) %>
+  </tbody>
+</table>
+
+
+
 <form action="/logout?_method=DELETE" method="POST">
   <button type="submit">Log Out</button>
 </form>
+
+<%- include('partials/footer'); -%>

@@ -9,6 +9,11 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const products = require('./products')
+
+app.use(express.static("public"));
+
+const dotenv = require('dotenv').config()
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -32,7 +37,12 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.ejs', { name: req.user.name })
+  console.log(products)
+  res.render('index.ejs', { 
+    name: req.user.name,
+    products: products,
+    role: req.user.role
+   })
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -56,8 +66,10 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       id: Date.now().toString(),
       name: req.body.name,
       email: req.body.email,
-      password: hashedPassword
+      password: hashedPassword,
+      role: req.body.role
     })
+    console.log(users);
     res.redirect('/login')
   } catch {
     res.redirect('/register')

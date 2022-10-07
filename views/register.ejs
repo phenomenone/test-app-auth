@@ -1,3 +1,5 @@
+<%- include('partials/header'); -%>
+
 <h1>Register</h1>
 <form action="/register" method="POST">
   <div>
@@ -12,6 +14,15 @@
     <label for="password">Password</label>
     <input type="password" id="password" name="password" required>
   </div>
+  <div>
+    <label for="role">User Role</label>
+    <select type="submit" id="role" name="role" required>
+      <option value="admin">Administrator</option>
+      <option value="user">User</option>
+    </select>
+  </div>
   <button type="submit">Register</button>
 </form>
 <a href="/login">Login</a>
+
+<%- include('partials/footer'); -%>
