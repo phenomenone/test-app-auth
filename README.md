@@ -11,7 +11,7 @@
 > 1. Clone the project
 > 2. Command prompt: npm install
 > 3. Run "npm start"
-> 4. Open a browser to: [localhost:3000](http://localhost:3000/)
+> 4. Open a browser to: [localhost:5000](http://localhost:5000/)
 
 ## Stack Used
 
