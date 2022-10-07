@@ -1,4 +1,4 @@
-# Introvert or Extrovert
+# Test App Auth
 
 > Backend Technical Test Zebrands
 
